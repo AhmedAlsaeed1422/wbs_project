@@ -6,10 +6,11 @@ from flask_jwt_extended import JWTManager, create_access_token, jwt_required
 app = Flask(__name__)
 
 # Configure MySQL connection
-app.config['MYSQL_HOST'] = 'localhost'         # Default MySQL server
-app.config['MYSQL_USER'] = 'root'              # Default MySQL username (commonly 'root')
-app.config['MYSQL_PASSWORD'] = ''              # Leave blank if no password
-app.config['MYSQL_DB'] = 'restful_web_service' # Use the exact name of your database
+app.config['MYSQL_HOST'] = 'localhost'
+app.config['MYSQL_USER'] = 'root'
+app.config['MYSQL_PASSWORD'] = ''  # Leave empty since you're using XAMPP with no root password.
+app.config['MYSQL_DB'] = 'restful_web_service'
+
 
 # Configure JWT
 app.config['JWT_SECRET_KEY'] = 'your-secret-key'  # Replace with a secure secret key
@@ -166,4 +167,4 @@ print(app.url_map)
 
 # Run the Flask app
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
